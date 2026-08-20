@@ -5,6 +5,7 @@
     --line: #342733;
     --accent: #ff2bd6;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -38,18 +39,19 @@ a {
 ========================================================= */
 
 .gate {
-    color: #f9f6ef;
+    color: #f9f2f8;
     cursor: pointer;
     z-index: 60;
+
     background:
         radial-gradient(
             circle at 70% 20%,
-            #ff7f3f40,
+            #ff2bd640,
             #0000 32%
         ),
         radial-gradient(
             circle at 20% 80%,
-            #ff7f3f26,
+            #ff2bd626,
             #0000 36%
         ),
         #070707;
@@ -115,7 +117,7 @@ a {
 }
 
 .gate-hint {
-    color: #d5c2b5;
+    color: #d8b8d2;
 
     letter-spacing: .14em;
 
@@ -140,14 +142,14 @@ a {
 
     14% {
         text-shadow:
-            2px 0 #ff7f3f8c;
+            2px 0 #ff2bd68c;
 
         transform: translate(1px);
     }
 
     15% {
         text-shadow:
-            -2px 0 #ffe0cc52;
+            -2px 0 #ffb0ed52;
 
         transform: translate(-1px);
     }
@@ -198,8 +200,8 @@ a {
     background:
         linear-gradient(
             90deg,
-            #ff7f3f59,
-            #ffbb92f2
+            #ff2bd659,
+            #ffb0edf2
         );
 
     width: 100%;
@@ -280,20 +282,20 @@ a {
 
 
 /* =========================================================
-   TEMPORARY HYDRA VISUALS
+   EBLAS VISUALS
 ========================================================= */
 
 .visual-aether {
     background:
         linear-gradient(
             130deg,
-            #ff844142,
-            #ff84410d 36%,
+            #ff2bd642,
+            #ff2bd60d 36%,
             #080808d9 70%
         ),
         radial-gradient(
             circle at 70% 22%,
-            #ffb38933,
+            #ff8be833,
             #0000 26%
         ),
         #0a0a0a;
@@ -303,7 +305,7 @@ a {
     background:
         linear-gradient(
             145deg,
-            #db916733,
+            #d94bc133,
             #080808d9 58%
         ),
         repeating-linear-gradient(
@@ -318,12 +320,12 @@ a {
     background:
         radial-gradient(
             circle at 18% 18%,
-            #ff7f3f2e,
+            #ff2bd62e,
             #0000 34%
         ),
         radial-gradient(
             circle at 82% 82%,
-            #ff7f3f29,
+            #ff2bd629,
             #0000 30%
         ),
         #070707;
@@ -374,13 +376,13 @@ a {
 }
 
 .topbar button {
-    color: #f4f1ea;
+    color: #f5eaf3;
 
     cursor: pointer;
 
     background: #ffffff05;
 
-    border: 1px solid #4f3f33;
+    border: 1px solid #51354c;
 
     border-radius: 999px;
 
@@ -392,7 +394,7 @@ a {
 }
 
 .topbar button:hover {
-    border-color: #a17658;
+    border-color: #c04eaa;
 
     transform: translateY(-1px);
 }
@@ -441,7 +443,7 @@ a {
 .menu-shell p {
     letter-spacing: .2em;
 
-    color: #ccb6a6;
+    color: #d4afd0;
 
     margin: 0;
 
@@ -452,7 +454,7 @@ a {
 .menu-shell button {
     letter-spacing: .02em;
 
-    color: #f7f1ea;
+    color: #f7eff6;
 
     cursor: pointer;
 
@@ -547,7 +549,7 @@ main {
 .mono {
     letter-spacing: .18em;
 
-    color: #d0c7bd;
+    color: #d8c5d5;
 
     margin: 0;
 
@@ -694,7 +696,7 @@ main {
 .marquee div {
     letter-spacing: .16em;
 
-    color: #cfbaab;
+    color: #d5b8d0;
 
     flex: none;
 
@@ -821,7 +823,7 @@ main {
 
 .project-item:hover h2,
 .project-item:focus-visible h2 {
-    color: #ffd3b6;
+    color: #ffb0ed;
 }
 
 .project-thumb {
@@ -862,7 +864,7 @@ main {
 .project-item span {
     letter-spacing: .16em;
 
-    color: #d3c6b9;
+    color: #d8c1d4;
 
     font-size: 11px;
 }
@@ -901,7 +903,7 @@ main {
 .project-item strong {
     letter-spacing: .12em;
 
-    color: #efcab0;
+    color: #f0a9df;
 
     font-size: 12px;
 }
@@ -939,11 +941,11 @@ main {
 .awards span {
     letter-spacing: .08em;
 
-    color: #edc3a4;
+    color: #eca6dc;
 
     border:
         1px solid
-        #5f493a;
+        #604257;
 
     border-radius: 999px;
 
@@ -1019,7 +1021,7 @@ footer {
 footer p {
     letter-spacing: .1em;
 
-    color: #c6bdb3;
+    color: #c9b6c5;
 
     margin: 0;
 
