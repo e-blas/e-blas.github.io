@@ -1,70 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
     gsap.registerPlugin(ScrollTrigger);
 
 
-    const intro = document.getElementById("intro");
+    const gate =
+        document.getElementById("gate");
 
-    const enter = document.getElementById("introEnter");
+    const site =
+        document.getElementById("site");
 
-    const site = document.getElementById("site");
+
+    document.body.classList.add("locked");
 
 
     /* =====================================================
        INTRO
     ===================================================== */
 
-    gsap.set(site, {
-        opacity: 0
-    });
+    const introTimeline =
+        gsap.timeline();
 
 
-    const introIn = gsap.timeline();
+    introTimeline
 
-
-    introIn
-
-        .from(".intro-header span", {
+        .from(".gate-mark", {
 
             opacity: 0,
 
-            y: 12,
+            y: 25,
 
-            duration: .7,
+            duration: .9,
 
-            stagger: .08,
-
-            ease: "power3.out"
+            ease: "power4.out"
 
         })
 
 
-        .from(".intro-enter", {
+        .from(".gate-title", {
 
             opacity: 0,
 
             y: 12,
 
-            duration: .8,
+            duration: .6,
 
             ease: "power3.out"
 
-        }, "-=.4")
+        }, "-=.5")
 
 
-        .from(".intro-footer span", {
+        .from(".gate-hint", {
 
             opacity: 0,
 
             y: 12,
 
-            duration: .7,
-
-            stagger: .08,
+            duration: .6,
 
             ease: "power3.out"
 
-        }, "-=.5");
+        }, "-=.3");
 
 
 
@@ -72,42 +68,45 @@ document.addEventListener("DOMContentLoaded", () => {
        ENTER
     ===================================================== */
 
-    enter.addEventListener("click", () => {
+    gate.addEventListener("click", () => {
 
 
-        const out = gsap.timeline({
+        const timeline =
+            gsap.timeline({
 
-            onComplete: () => {
+                onComplete: () => {
 
-                intro.style.display = "none";
+                    gate.style.display = "none";
 
-                document.body.classList.remove("locked");
+                    document.body.classList.remove(
+                        "locked"
+                    );
 
-                initializeSite();
+                    initializePage();
 
-            }
+                }
 
-        });
-
-
-        out
+            });
 
 
-            .to(".intro-enter", {
+        timeline
+
+
+            .to(".gate-mark", {
+
+                y: -25,
 
                 opacity: 0,
 
-                y: -10,
+                duration: .55,
 
-                duration: .35,
-
-                ease: "power2.in"
+                ease: "power3.in"
 
             })
 
 
             .to(
-                ".intro-header, .intro-footer",
+                ".gate-title, .gate-hint",
                 {
 
                     opacity: 0,
@@ -115,12 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     duration: .35
 
                 },
-
-                "-=.2"
+                "-=.3"
             )
 
 
-            .to(intro, {
+            .to(gate, {
 
                 clipPath:
                     "inset(0 0 100% 0)",
@@ -133,47 +131,45 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
 
-            .to(site, {
+            .to(
+                site,
+                {
 
-                opacity: 1,
+                    opacity: 1,
 
-                duration: .01
+                    duration: .01
 
-            }, "-=.65")
-
-
-            .to(".hero-kicker", {
-
-                opacity: 1,
-
-                duration: .7,
-
-                ease:
-                    "power3.out"
-
-            }, "-=.15")
+                },
+                "-=.65"
+            )
 
 
-            .to(".hero h1", {
+            .from(
+                ".hero-content",
+                {
 
-                opacity: 1,
+                    opacity: 0,
 
-                duration: 1.1,
+                    y: 40,
 
-                ease:
-                    "power4.out"
+                    duration: 1,
 
-            }, "-=.5");
+                    ease: "power4.out"
+
+                },
+                "-=.3"
+            );
+
 
     });
 
 
 
     /* =====================================================
-       SITE
+       PAGE
     ===================================================== */
 
-    function initializeSite() {
+    function initializePage() {
 
 
         /* =================================================
@@ -181,7 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ================================================= */
 
         const ticker =
-            document.querySelector(".ticker-track");
+            document.querySelector(
+                ".ticker-track"
+            );
 
 
         if (ticker) {
@@ -190,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 xPercent: -50,
 
-                duration: 32,
+                duration: 35,
 
                 repeat: -1,
 
@@ -203,12 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =================================================
-           HERO PARALLAX
+           HERO
         ================================================= */
 
-        gsap.to(".hero h1", {
+        gsap.to(".hero-title", {
 
-            yPercent: -10,
+            yPercent: -8,
 
             ease: "none",
 
@@ -229,18 +227,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =================================================
-           SECTION INTRO
+           SECTION HEADINGS
         ================================================= */
 
         gsap.utils
-            .toArray(".section-intro")
-            .forEach((section) => {
+            .toArray(".section-heading")
+            .forEach((heading) => {
 
-                gsap.from(section, {
+                gsap.from(heading, {
 
                     opacity: 0,
 
-                    y: 35,
+                    y: 30,
 
                     duration: .9,
 
@@ -248,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     scrollTrigger: {
 
-                        trigger: section,
+                        trigger: heading,
 
                         start: "top 88%",
 
@@ -277,33 +275,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
-                const meta =
-                    project.querySelector(
-                        ".project-meta"
-                    );
-
-
                 const info =
                     project.querySelector(
                         ".project-info"
                     );
 
 
-                if (!image || !meta || !info) {
-
-                    return;
-
-                }
-
-
-
                 gsap.from(image, {
 
                     opacity: 0,
 
-                    y: 45,
-
-                    scale: .985,
+                    y: 40,
 
                     duration: 1,
 
@@ -322,31 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
 
-
-                gsap.from(meta, {
-
-                    opacity: 0,
-
-                    y: 10,
-
-                    duration: .6,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-
-                        trigger: project,
-
-                        start: "top 90%",
-
-                        once: true
-
-                    }
-
-                });
-
-
-
                 gsap.from(info, {
 
                     opacity: 0,
@@ -361,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         trigger: project,
 
-                        start: "top 82%",
+                        start: "top 80%",
 
                         once: true
 
@@ -370,40 +327,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
 
-
-                gsap.to(image, {
-
-                    yPercent: -3,
-
-                    ease: "none",
-
-                    scrollTrigger: {
-
-                        trigger: project,
-
-                        start: "top bottom",
-
-                        end: "bottom top",
-
-                        scrub: true
-
-                    }
-
-                });
-
             });
 
 
 
         /* =================================================
-           MYSELF
+           ABOUT
         ================================================= */
 
-        gsap.from(".myself-lead", {
+        gsap.from(".about-lead", {
 
             opacity: 0,
 
-            y: 40,
+            y: 35,
 
             duration: 1,
 
@@ -411,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             scrollTrigger: {
 
-                trigger: ".myself-lead",
+                trigger: ".about-lead",
 
                 start: "top 85%",
 
@@ -424,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         gsap.utils
-            .toArray(".myself-text p")
+            .toArray(".about-columns p")
             .forEach((paragraph) => {
 
                 gsap.from(paragraph, {
@@ -495,7 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             opacity: 0,
 
-            y: 35,
+            y: 30,
 
             duration: 1,
 
