@@ -388,68 +388,80 @@ a {
 ========================================================= */
 
 .topbar {
-    border: 1px solid var(--line);
-
-    backdrop-filter: blur(8px);
-
     z-index: 20;
 
-    background: #0c0c0cc7;
+    width: 100%;
+    height: auto;
 
-    border-radius: 999px;
-
-    width: fit-content;
-
-    padding: 10px 14px;
+    padding: 18px 24px;
 
     position: fixed;
+    top: 0;
+    left: 0;
 
-    top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    left: 50%;
-
-    transform: translate(-50%);
+    background: transparent;
+    border: 0;
 }
 
-.topbar-links {
-    justify-content: center;
+.topbar-logo {
+    display: inline-flex;
     align-items: center;
 
-    gap: 12px;
-
-    display: inline-flex;
+    color: var(--text);
 }
 
-.topbar a,
-.topbar button {
-    letter-spacing: .14em;
+.topbar-logo .eblas-logo {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   LANGUAGE SELECTOR
+========================================================= */
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
     font-size: 11px;
+    letter-spacing: .12em;
 }
 
-.topbar button {
-    color: #f5eaf3;
+.language-option {
+    appearance: none;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--muted);
+
+    font-family: Manrope, sans-serif;
+    font-size: inherit;
+    letter-spacing: inherit;
 
     cursor: pointer;
 
-    background: #ffffff05;
-
-    border: 1px solid #51354c;
-
-    border-radius: 999px;
-
-    padding: 6px 12px;
-
     transition:
-        transform .22s,
-        border-color .22s;
+        color .2s,
+        opacity .2s;
 }
 
-.topbar button:hover {
-    border-color: #c04eaa;
-
-    transform: translateY(-1px);
+.language-option:hover,
+.language-option.active {
+    color: var(--text);
 }
 
+.language-divider {
+    color: var(--line);
+}
 
 /* =========================================================
    MENU
