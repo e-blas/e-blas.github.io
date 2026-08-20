@@ -1,379 +1,368 @@
-/* =====================================================
-   EBLAS
-   Motion system
-===================================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-
     const intro = document.getElementById("intro");
-    const enterButton = document.getElementById("enterButton");
+    const introEnter = document.getElementById("introEnter");
     const site = document.getElementById("site");
-
-
-    /* =================================================
-       INITIAL STATE
-    ================================================= */
 
     document.body.classList.add("locked");
 
-    gsap.set(site, {
-        opacity: 0
-    });
 
+    /* ==================================================
+       INTRO
+    ================================================== */
 
-    /* =================================================
-       INTRO ENTRANCE
-    ================================================= */
+    const introTimeline = gsap.timeline();
 
-    const introEntrance = gsap.timeline();
-
-    introEntrance
-        .from(".intro__header span", {
+    introTimeline
+        .from(".intro-top span", {
             y: 15,
             opacity: 0,
-            duration: .8,
-            stagger: .08,
+            duration: 0.7,
+            stagger: 0.08,
             ease: "power3.out"
         })
-
-        .from(".intro__enter", {
+        .from(".intro-enter", {
             y: 20,
             opacity: 0,
-            duration: 1,
+            duration: 0.9,
             ease: "power3.out"
-        }, "-=.5")
-
-        .from(".intro__footer span", {
+        }, "-=0.4")
+        .from(".intro-bottom span", {
             y: 15,
             opacity: 0,
-            duration: .7,
-            stagger: .08,
+            duration: 0.7,
+            stagger: 0.08,
             ease: "power3.out"
-        }, "-=.6");
+        }, "-=0.5");
 
 
-    /* =================================================
+    /* ==================================================
        ENTER
-    ================================================= */
+    ================================================== */
 
-    enterButton.addEventListener("click", () => {
+    introEnter.addEventListener("click", () => {
 
-        const enterTimeline = gsap.timeline({
-
+        const reveal = gsap.timeline({
             onComplete: () => {
 
                 intro.style.display = "none";
 
                 document.body.classList.remove("locked");
 
-                initScrollAnimations();
+                startSiteAnimations();
 
+            }
+        });
+
+
+        reveal
+            .to(".intro-enter", {
+                opacity: 0,
+                y: -15,
+                duration: 0.35,
+                ease: "power2.in"
+            })
+            .to(".intro-top, .intro-bottom", {
+                opacity: 0,
+                duration: 0.35
+            }, "-=0.2")
+            .to(intro, {
+                clipPath: "inset(0 0 100% 0)",
+                duration: 1.15,
+                ease: "power4.inOut"
+            })
+            .to(site, {
+                opacity: 1,
+                duration: 0.2
+            }, "-=0.55")
+            .to(".hero-label", {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power3.out"
+            }, "-=0.2")
+            .to(".hero h1", {
+                y: 0,
+                opacity: 1,
+                duration: 1.1,
+                ease: "power4.out"
+            }, "-=0.5");
+
+    });
+
+
+    /* ==================================================
+       SITE ANIMATIONS
+    ================================================== */
+
+    function startSiteAnimations() {
+
+
+        /* ----------------------------------------------
+           TICKER
+        ---------------------------------------------- */
+
+        const ticker = document.querySelector(".ticker-track");
+
+        if (ticker) {
+
+            gsap.to(ticker, {
+                xPercent: -50,
+                duration: 30,
+                repeat: -1,
+                ease: "none"
+            });
+
+        }
+
+
+        /* ----------------------------------------------
+           HERO PARALLAX
+        ---------------------------------------------- */
+
+        gsap.to(".hero h1", {
+
+            yPercent: -10,
+
+            ease: "none",
+
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
             }
 
         });
 
 
-        enterTimeline
+        /* ----------------------------------------------
+           SECTION HEADINGS
+        ---------------------------------------------- */
 
-            .to(".intro__enter", {
+        gsap.utils.toArray(".section-heading").forEach((heading) => {
+
+            gsap.from(heading, {
+
+                y: 40,
+
                 opacity: 0,
-                y: -15,
-                duration: .4,
-                ease: "power2.in"
-            })
 
-            .to(".intro__header, .intro__footer", {
+                duration: 1,
+
+                ease: "power4.out",
+
+                scrollTrigger: {
+
+                    trigger: heading,
+
+                    start: "top 85%",
+
+                    once: true
+
+                }
+
+            });
+
+        });
+
+
+        /* ----------------------------------------------
+           PROJECTS
+        ---------------------------------------------- */
+
+        gsap.utils.toArray(".project").forEach((project) => {
+
+            const image =
+                project.querySelector(".project-image");
+
+            const info =
+                project.querySelector(".project-info");
+
+            const meta =
+                project.querySelector(".project-meta");
+
+            const name =
+                project.querySelector(".project-name");
+
+
+            if (!image || !info || !meta || !name) {
+                return;
+            }
+
+
+            /* Reveal */
+
+            gsap.from(image, {
+
+                y: 60,
+
                 opacity: 0,
-                duration: .4
-            }, "-=.25")
 
-            .to(intro, {
-                clipPath: "inset(0 0 100% 0)",
-                duration: 1.25,
-                ease: "power4.inOut"
-            })
+                scale: 0.97,
 
-            .to(site, {
-                opacity: 1,
-                duration: .2
-            }, "-=.65")
+                duration: 1.1,
 
-            .to(".hero__eyebrow", {
-                y: 0,
-                opacity: 1,
-                duration: .8,
-                ease: "power4.out"
-            }, "-=.25")
+                ease: "power4.out",
 
-            .to(".hero h1", {
-                y: 0,
-                opacity: 1,
-                duration: 1.2,
-                ease: "power4.out"
-            }, "-=.55");
+                scrollTrigger: {
 
-    });
+                    trigger: project,
+
+                    start: "top 85%",
+
+                    once: true
+
+                }
+
+            });
 
 
-    /* =================================================
-       SCROLL ANIMATIONS
-    ================================================= */
+            gsap.from(meta, {
 
-    function initScrollAnimations() {
+                y: 15,
+
+                opacity: 0,
+
+                duration: 0.7,
+
+                ease: "power3.out",
+
+                scrollTrigger: {
+
+                    trigger: project,
+
+                    start: "top 90%",
+
+                    once: true
+
+                }
+
+            });
 
 
-        /* ---------------------------------------------
-           MARQUEE
-        --------------------------------------------- */
+            gsap.from(info, {
 
-        const marquee =
-            document.querySelector(".marquee-track");
+                y: 20,
 
-        if (marquee) {
+                opacity: 0,
 
-            gsap.to(marquee, {
+                duration: 0.8,
 
-                xPercent: -50,
+                ease: "power3.out",
 
-                duration: 28,
+                scrollTrigger: {
 
-                repeat: -1,
+                    trigger: project,
 
-                ease: "none"
+                    start: "top 80%",
+
+                    once: true
+
+                }
+
+            });
+
+
+            /* Image parallax */
+
+            gsap.to(image, {
+
+                yPercent: -5,
+
+                ease: "none",
+
+                scrollTrigger: {
+
+                    trigger: project,
+
+                    start: "top bottom",
+
+                    end: "bottom top",
+
+                    scrub: true
+
+                }
+
+            });
+
+
+            /* Project title parallax */
+
+            gsap.to(name, {
+
+                yPercent: -10,
+
+                ease: "none",
+
+                scrollTrigger: {
+
+                    trigger: project,
+
+                    start: "top bottom",
+
+                    end: "bottom top",
+
+                    scrub: true
+
+                }
+
+            });
+
+        });
+
+
+        /* ----------------------------------------------
+           MYSELF
+        ---------------------------------------------- */
+
+        const lead = document.querySelector(".myself-lead");
+
+        if (lead) {
+
+            gsap.from(lead, {
+
+                y: 50,
+
+                opacity: 0,
+
+                duration: 1.1,
+
+                ease: "power4.out",
+
+                scrollTrigger: {
+
+                    trigger: lead,
+
+                    start: "top 80%",
+
+                    once: true
+
+                }
 
             });
 
         }
 
 
-        /* ---------------------------------------------
-           HERO PARALLAX
-        --------------------------------------------- */
+        gsap.utils.toArray(".myself-description p")
+            .forEach((paragraph) => {
 
-        gsap.to(".hero h1", {
+                gsap.from(paragraph, {
 
-            yPercent: -12,
-
-            ease: "none",
-
-            scrollTrigger: {
-
-                trigger: ".hero",
-
-                start: "top top",
-
-                end: "bottom top",
-
-                scrub: true
-
-            }
-
-        });
-
-
-        /* ---------------------------------------------
-           PROJECTS
-        --------------------------------------------- */
-
-        document.querySelectorAll(".project")
-            .forEach((project) => {
-
-                const visual =
-                    project.querySelector(
-                        ".project__visual"
-                    );
-
-                const title =
-                    project.querySelector(
-                        ".project__visual-title"
-                    );
-
-                const meta =
-                    project.querySelector(
-                        ".project__meta"
-                    );
-
-                const bottom =
-                    project.querySelector(
-                        ".project__bottom"
-                    );
-
-
-                /* Visual reveal */
-
-                gsap.fromTo(
-                    visual,
-
-                    {
-                        y: 60,
-                        opacity: 0,
-                        scale: .96
-                    },
-
-                    {
-                        y: 0,
-                        opacity: 1,
-                        scale: .985,
-
-                        duration: 1.2,
-
-                        ease:
-                            "power4.out",
-
-                        scrollTrigger: {
-
-                            trigger: project,
-
-                            start: "top 85%",
-
-                            once: true
-
-                        }
-
-                    }
-                );
-
-
-                /* Metadata */
-
-                gsap.from(
-                    meta,
-
-                    {
-                        y: 15,
-                        opacity: 0,
-
-                        duration: .7,
-
-                        ease:
-                            "power3.out",
-
-                        scrollTrigger: {
-
-                            trigger: project,
-
-                            start: "top 90%",
-
-                            once: true
-
-                        }
-
-                    }
-                );
-
-
-                /* Bottom information */
-
-                gsap.from(
-                    bottom,
-
-                    {
-                        y: 20,
-                        opacity: 0,
-
-                        duration: .8,
-
-                        ease:
-                            "power3.out",
-
-                        scrollTrigger: {
-
-                            trigger: project,
-
-                            start: "top 75%",
-
-                            once: true
-
-                        }
-
-                    }
-                );
-
-
-                /* Image parallax */
-
-                gsap.to(
-                    visual,
-
-                    {
-
-                        yPercent: -5,
-
-                        ease: "none",
-
-                        scrollTrigger: {
-
-                            trigger: project,
-
-                            start: "top bottom",
-
-                            end: "bottom top",
-
-                            scrub: true
-
-                        }
-
-                    }
-                );
-
-
-                /* Project title */
-
-                gsap.to(
-                    title,
-
-                    {
-
-                        yPercent: -10,
-
-                        ease: "none",
-
-                        scrollTrigger: {
-
-                            trigger: project,
-
-                            start: "top bottom",
-
-                            end: "bottom top",
-
-                            scrub: true
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-        /* ---------------------------------------------
-           SECTION HEADINGS
-        --------------------------------------------- */
-
-        document.querySelectorAll(
-            ".section-intro h2"
-        ).forEach((heading) => {
-
-            gsap.from(
-                heading,
-
-                {
-
-                    y: 45,
+                    y: 25,
 
                     opacity: 0,
 
-                    duration: 1,
+                    duration: 0.8,
 
-                    ease:
-                        "power4.out",
+                    ease: "power3.out",
 
                     scrollTrigger: {
 
-                        trigger: heading,
+                        trigger: paragraph,
 
                         start: "top 85%",
 
@@ -381,95 +370,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     }
 
-                }
-            );
+                });
 
-        });
-
-
-        /* ---------------------------------------------
-           MYSELF
-        --------------------------------------------- */
-
-        gsap.from(
-            ".myself__large",
-
-            {
-
-                y: 60,
-
-                opacity: 0,
-
-                duration: 1.2,
-
-                ease:
-                    "power4.out",
-
-                scrollTrigger: {
-
-                    trigger: ".myself__large",
-
-                    start: "top 80%",
-
-                    once: true
-
-                }
-
-            }
-        );
+            });
 
 
-        gsap.from(
-            ".myself__details p",
-
-            {
-
-                y: 30,
-
-                opacity: 0,
-
-                duration: .9,
-
-                stagger: .12,
-
-                ease:
-                    "power3.out",
-
-                scrollTrigger: {
-
-                    trigger: ".myself__details",
-
-                    start: "top 80%",
-
-                    once: true
-
-                }
-
-            }
-        );
-
-
-        /* ---------------------------------------------
+        /* ----------------------------------------------
            SERVICES
-        --------------------------------------------- */
+        ---------------------------------------------- */
 
-        document.querySelectorAll(
-            ".service"
-        ).forEach((service) => {
+        gsap.utils.toArray(".service")
+            .forEach((service) => {
 
-            gsap.from(
-                service,
+                gsap.from(service, {
 
-                {
-
-                    y: 25,
+                    y: 20,
 
                     opacity: 0,
 
-                    duration: .7,
+                    duration: 0.7,
 
-                    ease:
-                        "power3.out",
+                    ease: "power3.out",
 
                     scrollTrigger: {
 
@@ -481,33 +402,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     }
 
-                }
-            );
+                });
 
-        });
+            });
 
 
-        /* ---------------------------------------------
+        /* ----------------------------------------------
            CONTACT
-        --------------------------------------------- */
+        ---------------------------------------------- */
 
-        gsap.from(
-            ".contact__email",
+        const email =
+            document.querySelector(".contact-email");
 
-            {
+        if (email) {
+
+            gsap.from(email, {
 
                 y: 40,
 
                 opacity: 0,
 
-                duration: 1.2,
+                duration: 1.1,
 
-                ease:
-                    "power4.out",
+                ease: "power4.out",
 
                 scrollTrigger: {
 
-                    trigger: ".contact__main",
+                    trigger: email,
 
                     start: "top 80%",
 
@@ -515,11 +436,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-            }
-        );
+            });
 
+        }
+
+
+        ScrollTrigger.refresh();
 
     }
-
 
 });
