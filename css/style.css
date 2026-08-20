@@ -18,7 +18,7 @@ body {
         Helvetica,
         sans-serif;
 
-    font-size: 13px;
+    font-size: 14px;
 
     line-height: 1.2;
 
@@ -46,21 +46,16 @@ button {
 
 
 /* =====================================================
-   GLOBAL WIDTH
+   PAGE CONTAINER
 ===================================================== */
 
-.hero,
-.work,
-.myself,
-.skills,
-.contact {
-    width: 100%;
-    max-width: 1440px;
+.page-container {
+    width: calc(100% - 76px);
 
-    margin: 0 auto;
+    max-width: 1360px;
 
-    padding-left: 38px;
-    padding-right: 38px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -78,11 +73,24 @@ button {
     background: #111;
 
     display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.intro-inner {
+    width: calc(100% - 76px);
+
+    max-width: 1360px;
+
+    height: calc(100% - 48px);
+
+    display: flex;
+
     flex-direction: column;
 
     justify-content: space-between;
-
-    padding: 24px 38px;
 }
 
 .intro-header,
@@ -93,9 +101,9 @@ button {
 
     align-items: center;
 
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 
     text-transform: uppercase;
 }
@@ -115,17 +123,13 @@ button {
 
     gap: 10px;
 
-    font-size: 11px;
+    font-size: 12px;
 
-    letter-spacing: .08em;
-
-    opacity: 1;
-
-    visibility: visible;
+    letter-spacing: .05em;
 }
 
 .intro-arrow {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 
@@ -146,7 +150,13 @@ button {
     min-height: 100svh;
 
     padding-top: 24px;
+
     padding-bottom: 24px;
+}
+
+.hero-container {
+    min-height:
+        calc(100svh - 48px);
 
     display: flex;
 
@@ -161,15 +171,16 @@ button {
 
     justify-content: space-between;
 
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 
     text-transform: uppercase;
 }
 
 .hero-center {
     margin-top: auto;
+
     margin-bottom: auto;
 
     padding-top: 100px;
@@ -178,11 +189,11 @@ button {
 .hero-kicker {
     color: #777;
 
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 
     opacity: 0;
 }
@@ -190,13 +201,11 @@ button {
 .hero h1 {
     max-width: 1000px;
 
-    margin: 0;
-
     font-size:
         clamp(
             58px,
-            7.3vw,
-            105px
+            7vw,
+            100px
         );
 
     font-weight: 500;
@@ -218,7 +227,7 @@ button {
 
     overflow: hidden;
 
-    padding: 20px 0;
+    padding: 22px 0;
 
     border-top:
         1px solid #292929;
@@ -232,15 +241,15 @@ button {
 
     width: max-content;
 
-    gap: 24px;
+    gap: 27px;
 
     white-space: nowrap;
 
     font-size:
         clamp(
-            18px,
+            19px,
             2vw,
-            28px
+            27px
         );
 
     letter-spacing: -.035em;
@@ -249,7 +258,7 @@ button {
 .ticker-track span::after {
     content: "✳";
 
-    margin-left: 24px;
+    margin-left: 27px;
 
     font-size: .5em;
 }
@@ -263,8 +272,9 @@ button {
 .myself,
 .skills,
 .contact {
-    padding-top: 125px;
-    padding-bottom: 125px;
+    padding-top: 120px;
+
+    padding-bottom: 120px;
 }
 
 .section-intro {
@@ -281,21 +291,21 @@ button {
 .section-label {
     color: #777;
 
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 
     text-transform: uppercase;
 }
 
 .section-intro h2 {
-    margin-top: 16px;
+    margin-top: 17px;
 
     font-size:
         clamp(
             45px,
-            5.7vw,
-            80px
+            5.5vw,
+            78px
         );
 
     font-weight: 500;
@@ -306,11 +316,13 @@ button {
 }
 
 .section-description {
-    max-width: 410px;
+    max-width: 430px;
 
-    margin-top: 24px;
+    margin-top: 26px;
 
     color: #777;
+
+    font-size: 15px;
 
     line-height: 1.45;
 }
@@ -323,16 +335,17 @@ button {
 .projects {
     width: 100%;
 
-    max-width: 1080px;
+    max-width: 900px;
 
     margin-left: auto;
+
     margin-right: auto;
 }
 
 .project {
     display: block;
 
-    margin-bottom: 90px;
+    margin-bottom: 80px;
 }
 
 .project-meta {
@@ -344,7 +357,7 @@ button {
 
     color: #777;
 
-    font-size: 10px;
+    font-size: 11px;
 
     letter-spacing: .06em;
 
@@ -352,7 +365,9 @@ button {
 }
 
 
-/* IMAGE */
+/* =====================================================
+   PROJECT IMAGE
+===================================================== */
 
 .project-image {
     position: relative;
@@ -361,9 +376,9 @@ button {
 
     height:
         clamp(
-            300px,
-            48vw,
-            540px
+            260px,
+            37vw,
+            430px
         );
 
     overflow: hidden;
@@ -403,20 +418,22 @@ button {
 
     align-items: flex-start;
 
-    padding-top: 15px;
+    gap: 30px;
+
+    padding-top: 14px;
+
+    padding-bottom: 18px;
 
     border-bottom:
         1px solid #292929;
-
-    padding-bottom: 18px;
 }
 
 .project-info h3 {
     font-size:
         clamp(
-            22px,
-            2.4vw,
-            32px
+            21px,
+            2vw,
+            29px
         );
 
     font-weight: 500;
@@ -427,31 +444,31 @@ button {
 }
 
 .project-description {
-    max-width: 650px;
+    max-width: 610px;
 
-    margin-top: 9px;
+    margin-top: 10px;
 
     color: #777;
 
-    font-size: 13px;
+    font-size: 14px;
 
     line-height: 1.45;
 }
 
 .project-stack {
-    margin-top: 14px;
+    margin-top: 13px;
 
     color: #999;
 
-    font-size: 9px;
+    font-size: 11px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 
     text-transform: uppercase;
 }
 
 .project-arrow {
-    font-size: 17px;
+    font-size: 18px;
 
     transition:
         transform
@@ -486,8 +503,8 @@ button {
     font-size:
         clamp(
             28px,
-            3.7vw,
-            53px
+            3.5vw,
+            51px
         );
 
     line-height: 1;
@@ -503,13 +520,13 @@ button {
 
     gap: 40px;
 
-    margin-top: 75px;
+    margin-top: 70px;
 }
 
 .myself-text p {
     color: #777;
 
-    font-size: 13px;
+    font-size: 15px;
 
     line-height: 1.5;
 }
@@ -539,7 +556,7 @@ button {
 
     gap: 20px;
 
-    padding: 20px 0;
+    padding: 22px 0;
 
     border-bottom:
         1px solid #292929;
@@ -548,15 +565,15 @@ button {
 .skill > span {
     color: #777;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .skill h3 {
     font-size:
         clamp(
             20px,
-            2.3vw,
-            31px
+            2.2vw,
+            29px
         );
 
     font-weight: 500;
@@ -571,9 +588,9 @@ button {
 
     color: #777;
 
-    font-size: 12px;
+    font-size: 14px;
 
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 
@@ -584,29 +601,35 @@ button {
 .contact {
     min-height: 100svh;
 
+    border-top:
+        1px solid #292929;
+}
+
+.contact-container {
+    min-height:
+        calc(100svh - 240px);
+
     display: flex;
 
     flex-direction: column;
 
     justify-content: space-between;
-
-    border-top:
-        1px solid #292929;
 }
 
 .contact-center {
     margin-top: auto;
+
     margin-bottom: auto;
 }
 
 .contact-status {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
     color: #777;
 
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 }
 
 .contact-email {
@@ -615,8 +638,8 @@ button {
     font-size:
         clamp(
             28px,
-            5vw,
-            70px
+            4.8vw,
+            65px
         );
 
     line-height: 1;
@@ -637,9 +660,9 @@ footer {
     border-top:
         1px solid #292929;
 
-    font-size: 10px;
+    font-size: 11px;
 
-    letter-spacing: .08em;
+    letter-spacing: .06em;
 
     text-transform: uppercase;
 }
@@ -651,27 +674,24 @@ footer {
 
 @media (max-width: 700px) {
 
-    .hero,
-    .work,
-    .myself,
-    .skills,
-    .contact {
-        padding-left: 16px;
-        padding-right: 16px;
+    .page-container {
+        width:
+            calc(100% - 32px);
     }
 
-    .intro {
-        padding:
-            20px 16px;
+    .intro-inner {
+        width:
+            calc(100% - 32px);
+
+        height:
+            calc(100% - 40px);
     }
 
-    .intro-header span:last-child,
-    .intro-footer span:last-child {
-        display: none;
-    }
-
-    .hero-header span:last-child {
-        display: none;
+    .intro-header,
+    .intro-footer,
+    .hero-header,
+    .hero-footer {
+        font-size: 10px;
     }
 
     .hero-center {
@@ -692,6 +712,7 @@ footer {
     .skills,
     .contact {
         padding-top: 90px;
+
         padding-bottom: 90px;
     }
 
@@ -711,26 +732,26 @@ footer {
             );
     }
 
+    .section-description {
+        font-size: 14px;
+    }
+
     .projects {
         width: 100%;
     }
 
     .project {
-        margin-bottom: 70px;
+        margin-bottom: 65px;
     }
 
     .project-image {
-        height: 62vw;
+        height: 58vw;
 
-        min-height: 260px;
-    }
-
-    .project-info {
-        gap: 20px;
+        min-height: 230px;
     }
 
     .project-description {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .myself-content {
