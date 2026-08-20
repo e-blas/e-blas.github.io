@@ -2,125 +2,166 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
+
     const intro = document.getElementById("intro");
-    const introEnter = document.getElementById("introEnter");
+    const enter = document.getElementById("introEnter");
     const site = document.getElementById("site");
 
-    document.body.classList.add("locked");
 
-
-    /* ==================================================
+    /* =====================================================
        INTRO
-    ================================================== */
+    ===================================================== */
 
-    const introTimeline = gsap.timeline();
+    gsap.set(site, {
+        opacity: 0
+    });
 
-    introTimeline
-        .from(".intro-top span", {
-            y: 15,
+
+    const introIn = gsap.timeline();
+
+    introIn
+        .from(".intro-header span", {
             opacity: 0,
-            duration: 0.7,
-            stagger: 0.08,
+            y: 12,
+            duration: .7,
+            stagger: .08,
             ease: "power3.out"
         })
         .from(".intro-enter", {
-            y: 20,
             opacity: 0,
-            duration: 0.9,
+            y: 12,
+            duration: .8,
             ease: "power3.out"
-        }, "-=0.4")
-        .from(".intro-bottom span", {
-            y: 15,
+        }, "-=.4")
+        .from(".intro-footer span", {
             opacity: 0,
-            duration: 0.7,
-            stagger: 0.08,
+            y: 12,
+            duration: .7,
+            stagger: .08,
             ease: "power3.out"
-        }, "-=0.5");
+        }, "-=.5");
 
 
-    /* ==================================================
+    /* =====================================================
        ENTER
-    ================================================== */
+    ===================================================== */
 
-    introEnter.addEventListener("click", () => {
+    enter.addEventListener("click", () => {
 
-        const reveal = gsap.timeline({
+        const out = gsap.timeline({
+
             onComplete: () => {
 
                 intro.style.display = "none";
 
                 document.body.classList.remove("locked");
 
-                startSiteAnimations();
+                initializeSite();
 
             }
+
         });
 
 
-        reveal
+        out
+
             .to(".intro-enter", {
                 opacity: 0,
-                y: -15,
-                duration: 0.35,
+                y: -10,
+                duration: .35,
                 ease: "power2.in"
             })
-            .to(".intro-top, .intro-bottom", {
-                opacity: 0,
-                duration: 0.35
-            }, "-=0.2")
+
+            .to(
+                ".intro-header, .intro-footer",
+                {
+                    opacity: 0,
+                    duration: .35
+                },
+                "-=.2"
+            )
+
             .to(intro, {
-                clipPath: "inset(0 0 100% 0)",
+
+                clipPath:
+                    "inset(0 0 100% 0)",
+
                 duration: 1.15,
-                ease: "power4.inOut"
+
+                ease:
+                    "power4.inOut"
+
             })
+
             .to(site, {
+
                 opacity: 1,
-                duration: 0.2
-            }, "-=0.55")
-            .to(".hero-label", {
+
+                duration: .01
+
+            }, "-=.65")
+
+            .to(".hero-kicker", {
+
+                opacity: 1,
                 y: 0,
-                opacity: 1,
-                duration: 0.7,
-                ease: "power3.out"
-            }, "-=0.2")
+
+                duration: .7,
+
+                ease:
+                    "power3.out"
+
+            }, "-=.15")
+
             .to(".hero h1", {
-                y: 0,
+
                 opacity: 1,
+                y: 0,
+
                 duration: 1.1,
-                ease: "power4.out"
-            }, "-=0.5");
+
+                ease:
+                    "power4.out"
+
+            }, "-=.5");
 
     });
 
 
-    /* ==================================================
-       SITE ANIMATIONS
-    ================================================== */
+    /* =====================================================
+       SITE
+    ===================================================== */
 
-    function startSiteAnimations() {
+    function initializeSite() {
 
 
-        /* ----------------------------------------------
+        /* =================================================
            TICKER
-        ---------------------------------------------- */
+        ================================================= */
 
-        const ticker = document.querySelector(".ticker-track");
+        const ticker =
+            document.querySelector(".ticker-track");
 
         if (ticker) {
 
             gsap.to(ticker, {
+
                 xPercent: -50,
-                duration: 30,
+
+                duration: 32,
+
                 repeat: -1,
+
                 ease: "none"
+
             });
 
         }
 
 
-        /* ----------------------------------------------
+        /* =================================================
            HERO PARALLAX
-        ---------------------------------------------- */
+        ================================================= */
 
         gsap.to(".hero h1", {
 
@@ -129,242 +170,43 @@ document.addEventListener("DOMContentLoaded", () => {
             ease: "none",
 
             scrollTrigger: {
+
                 trigger: ".hero",
+
                 start: "top top",
+
                 end: "bottom top",
+
                 scrub: true
+
             }
 
         });
 
 
-        /* ----------------------------------------------
-           SECTION HEADINGS
-        ---------------------------------------------- */
-
-        gsap.utils.toArray(".section-heading").forEach((heading) => {
-
-            gsap.from(heading, {
-
-                y: 40,
-
-                opacity: 0,
-
-                duration: 1,
-
-                ease: "power4.out",
-
-                scrollTrigger: {
-
-                    trigger: heading,
-
-                    start: "top 85%",
-
-                    once: true
-
-                }
-
-            });
-
-        });
-
-
-        /* ----------------------------------------------
-           PROJECTS
-        ---------------------------------------------- */
-
-        gsap.utils.toArray(".project").forEach((project) => {
-
-            const image =
-                project.querySelector(".project-image");
-
-            const info =
-                project.querySelector(".project-info");
-
-            const meta =
-                project.querySelector(".project-meta");
-
-            const name =
-                project.querySelector(".project-name");
-
-
-            if (!image || !info || !meta || !name) {
-                return;
-            }
-
-
-            /* Reveal */
-
-            gsap.from(image, {
-
-                y: 60,
-
-                opacity: 0,
-
-                scale: 0.97,
-
-                duration: 1.1,
-
-                ease: "power4.out",
-
-                scrollTrigger: {
-
-                    trigger: project,
-
-                    start: "top 85%",
-
-                    once: true
-
-                }
-
-            });
-
-
-            gsap.from(meta, {
-
-                y: 15,
-
-                opacity: 0,
-
-                duration: 0.7,
-
-                ease: "power3.out",
-
-                scrollTrigger: {
-
-                    trigger: project,
-
-                    start: "top 90%",
-
-                    once: true
-
-                }
-
-            });
-
-
-            gsap.from(info, {
-
-                y: 20,
-
-                opacity: 0,
-
-                duration: 0.8,
-
-                ease: "power3.out",
-
-                scrollTrigger: {
-
-                    trigger: project,
-
-                    start: "top 80%",
-
-                    once: true
-
-                }
-
-            });
-
-
-            /* Image parallax */
-
-            gsap.to(image, {
-
-                yPercent: -5,
-
-                ease: "none",
-
-                scrollTrigger: {
-
-                    trigger: project,
-
-                    start: "top bottom",
-
-                    end: "bottom top",
-
-                    scrub: true
-
-                }
-
-            });
-
-
-            /* Project title parallax */
-
-            gsap.to(name, {
-
-                yPercent: -10,
-
-                ease: "none",
-
-                scrollTrigger: {
-
-                    trigger: project,
-
-                    start: "top bottom",
-
-                    end: "bottom top",
-
-                    scrub: true
-
-                }
-
-            });
-
-        });
-
-
-        /* ----------------------------------------------
-           MYSELF
-        ---------------------------------------------- */
-
-        const lead = document.querySelector(".myself-lead");
-
-        if (lead) {
-
-            gsap.from(lead, {
-
-                y: 50,
-
-                opacity: 0,
-
-                duration: 1.1,
-
-                ease: "power4.out",
-
-                scrollTrigger: {
-
-                    trigger: lead,
-
-                    start: "top 80%",
-
-                    once: true
-
-                }
-
-            });
-
-        }
-
-
-        gsap.utils.toArray(".myself-description p")
-            .forEach((paragraph) => {
-
-                gsap.from(paragraph, {
-
-                    y: 25,
+        /* =================================================
+           SECTION INTRO
+        ================================================= */
+
+        gsap.utils
+            .toArray(".section-intro")
+            .forEach((section) => {
+
+                gsap.from(section, {
 
                     opacity: 0,
 
-                    duration: 0.8,
+                    y: 35,
 
-                    ease: "power3.out",
+                    duration: .9,
+
+                    ease: "power4.out",
 
                     scrollTrigger: {
 
-                        trigger: paragraph,
+                        trigger: section,
 
-                        start: "top 85%",
+                        start: "top 88%",
 
                         once: true
 
@@ -375,26 +217,173 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-        /* ----------------------------------------------
-           SERVICES
-        ---------------------------------------------- */
+        /* =================================================
+           PROJECTS
+        ================================================= */
 
-        gsap.utils.toArray(".service")
-            .forEach((service) => {
+        gsap.utils
+            .toArray(".project")
+            .forEach((project) => {
 
-                gsap.from(service, {
+                const image =
+                    project.querySelector(
+                        ".project-image"
+                    );
 
-                    y: 20,
+                const meta =
+                    project.querySelector(
+                        ".project-meta"
+                    );
+
+                const info =
+                    project.querySelector(
+                        ".project-info"
+                    );
+
+
+                if (!image || !meta || !info) {
+                    return;
+                }
+
+
+                gsap.from(image, {
 
                     opacity: 0,
 
-                    duration: 0.7,
+                    y: 45,
+
+                    scale: .985,
+
+                    duration: 1,
+
+                    ease: "power4.out",
+
+                    scrollTrigger: {
+
+                        trigger: project,
+
+                        start: "top 88%",
+
+                        once: true
+
+                    }
+
+                });
+
+
+                gsap.from(meta, {
+
+                    opacity: 0,
+
+                    y: 10,
+
+                    duration: .6,
 
                     ease: "power3.out",
 
                     scrollTrigger: {
 
-                        trigger: service,
+                        trigger: project,
+
+                        start: "top 90%",
+
+                        once: true
+
+                    }
+
+                });
+
+
+                gsap.from(info, {
+
+                    opacity: 0,
+
+                    y: 15,
+
+                    duration: .7,
+
+                    ease: "power3.out",
+
+                    scrollTrigger: {
+
+                        trigger: project,
+
+                        start: "top 82%",
+
+                        once: true
+
+                    }
+
+                });
+
+
+                gsap.to(image, {
+
+                    yPercent: -3,
+
+                    ease: "none",
+
+                    scrollTrigger: {
+
+                        trigger: project,
+
+                        start: "top bottom",
+
+                        end: "bottom top",
+
+                        scrub: true
+
+                    }
+
+                });
+
+            });
+
+
+        /* =================================================
+           MYSELF
+        ================================================= */
+
+        gsap.from(".myself-lead", {
+
+            opacity: 0,
+
+            y: 40,
+
+            duration: 1,
+
+            ease: "power4.out",
+
+            scrollTrigger: {
+
+                trigger: ".myself-lead",
+
+                start: "top 85%",
+
+                once: true
+
+            }
+
+        });
+
+
+        gsap.utils
+            .toArray(".myself-text p")
+            .forEach((paragraph) => {
+
+                gsap.from(paragraph, {
+
+                    opacity: 0,
+
+                    y: 20,
+
+                    duration: .7,
+
+                    ease: "power3.out",
+
+                    scrollTrigger: {
+
+                        trigger: paragraph,
 
                         start: "top 90%",
 
@@ -407,38 +396,64 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-        /* ----------------------------------------------
-           CONTACT
-        ---------------------------------------------- */
+        /* =================================================
+           SKILLS
+        ================================================= */
 
-        const email =
-            document.querySelector(".contact-email");
+        gsap.utils
+            .toArray(".skill")
+            .forEach((skill) => {
 
-        if (email) {
+                gsap.from(skill, {
 
-            gsap.from(email, {
+                    opacity: 0,
 
-                y: 40,
+                    y: 18,
 
-                opacity: 0,
+                    duration: .65,
 
-                duration: 1.1,
+                    ease: "power3.out",
 
-                ease: "power4.out",
+                    scrollTrigger: {
 
-                scrollTrigger: {
+                        trigger: skill,
 
-                    trigger: email,
+                        start: "top 92%",
 
-                    start: "top 80%",
+                        once: true
 
-                    once: true
+                    }
 
-                }
+                });
 
             });
 
-        }
+
+        /* =================================================
+           CONTACT
+        ================================================= */
+
+        gsap.from(".contact-email", {
+
+            opacity: 0,
+
+            y: 35,
+
+            duration: 1,
+
+            ease: "power4.out",
+
+            scrollTrigger: {
+
+                trigger: ".contact-email",
+
+                start: "top 85%",
+
+                once: true
+
+            }
+
+        });
 
 
         ScrollTrigger.refresh();
