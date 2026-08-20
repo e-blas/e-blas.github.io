@@ -34,6 +34,64 @@ a {
 }
 
 
+
+/* =========================================================
+   EBLAS LOGO
+   Reusable and proportional to the local font-size
+========================================================= */
+
+.eblas-logo {
+    display: inline-flex;
+    align-items: baseline;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    font-family:
+        "Comfortaa",
+        sans-serif;
+
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.04em;
+    color: inherit;
+}
+
+.eblas-logo .letter-e {
+    display: inline-block;
+
+    position: relative;
+    top: .054em;
+
+    margin-right: -.07em;
+
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+.eblas-logo .letter-bla {
+    display: inline-block;
+}
+
+.eblas-logo .letter-s {
+    display: inline-block;
+
+    position: relative;
+    top: -.02em;
+
+    margin-left: -.032em;
+
+    font-family:
+        "Betania Patmos",
+        cursive;
+
+    font-size: 1.25em;
+    font-weight: 400;
+
+    -webkit-text-stroke: .018em currentColor;
+    paint-order: stroke fill;
+}
+
 /* =========================================================
    INTRO
 ========================================================= */
