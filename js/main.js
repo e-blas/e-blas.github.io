@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const intro = document.getElementById("intro");
+
     const enter = document.getElementById("introEnter");
+
     const site = document.getElementById("site");
 
 
@@ -19,27 +21,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const introIn = gsap.timeline();
 
+
     introIn
+
         .from(".intro-header span", {
+
             opacity: 0,
+
             y: 12,
+
             duration: .7,
+
             stagger: .08,
+
             ease: "power3.out"
+
         })
+
+
         .from(".intro-enter", {
+
             opacity: 0,
+
             y: 12,
+
             duration: .8,
+
             ease: "power3.out"
+
         }, "-=.4")
+
+
         .from(".intro-footer span", {
+
             opacity: 0,
+
             y: 12,
+
             duration: .7,
+
             stagger: .08,
+
             ease: "power3.out"
+
         }, "-=.5");
+
 
 
     /* =====================================================
@@ -47,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     enter.addEventListener("click", () => {
+
 
         const out = gsap.timeline({
 
@@ -65,21 +92,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         out
 
+
             .to(".intro-enter", {
+
                 opacity: 0,
+
                 y: -10,
+
                 duration: .35,
+
                 ease: "power2.in"
+
             })
+
 
             .to(
                 ".intro-header, .intro-footer",
                 {
+
                     opacity: 0,
+
                     duration: .35
+
                 },
+
                 "-=.2"
             )
+
 
             .to(intro, {
 
@@ -93,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             })
 
+
             .to(site, {
 
                 opacity: 1,
@@ -101,10 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }, "-=.65")
 
+
             .to(".hero-kicker", {
 
                 opacity: 1,
-                y: 0,
 
                 duration: .7,
 
@@ -113,10 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }, "-=.15")
 
+
             .to(".hero h1", {
 
                 opacity: 1,
-                y: 0,
 
                 duration: 1.1,
 
@@ -126,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, "-=.5");
 
     });
+
 
 
     /* =====================================================
@@ -142,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ticker =
             document.querySelector(".ticker-track");
 
+
         if (ticker) {
 
             gsap.to(ticker, {
@@ -157,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         }
+
 
 
         /* =================================================
@@ -182,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         });
+
 
 
         /* =================================================
@@ -217,6 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
+
         /* =================================================
            PROJECTS
         ================================================= */
@@ -225,15 +270,18 @@ document.addEventListener("DOMContentLoaded", () => {
             .toArray(".project")
             .forEach((project) => {
 
+
                 const image =
                     project.querySelector(
                         ".project-image"
                     );
 
+
                 const meta =
                     project.querySelector(
                         ".project-meta"
                     );
+
 
                 const info =
                     project.querySelector(
@@ -242,8 +290,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 if (!image || !meta || !info) {
+
                     return;
+
                 }
+
 
 
                 gsap.from(image, {
@@ -271,6 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
 
+
                 gsap.from(meta, {
 
                     opacity: 0,
@@ -292,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                 });
+
 
 
                 gsap.from(info, {
@@ -317,6 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
 
+
                 gsap.to(image, {
 
                     yPercent: -3,
@@ -338,6 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
             });
+
 
 
         /* =================================================
@@ -367,6 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
+
         gsap.utils
             .toArray(".myself-text p")
             .forEach((paragraph) => {
@@ -394,6 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
             });
+
 
 
         /* =================================================
@@ -427,6 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
             });
+
 
 
         /* =================================================
