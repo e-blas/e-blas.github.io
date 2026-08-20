@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>EBLAS — Creative Web Developer</title>
 
     <meta
         name="description"
-        content="EBLAS — Diseño, desarrollo y experiencias digitales."
+        content="EBLAS — Diseño y desarrollo de experiencias digitales."
     >
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- HYDRA FONT -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
 </head>
 
 
-<body class="locked">
+<body>
 
 
 <!-- =====================================================
-     INTRO
+     INTRO / GATE
 ===================================================== -->
 
-<div class="intro" id="intro">
+<button
+    class="gate ready"
+    type="button"
+    id="gate"
+>
 
-    <div class="intro-inner">
+    <span class="gate-mark">
+        EBLAS
+    </span>
 
-        <div class="intro-header">
+    <p class="gate-title">
+        PORTFOLIO 2026
+    </p>
 
-            <span>EBLAS</span>
+    <p class="gate-hint">
+        CLICK TO ENTER
+    </p>
 
-            <span>PORTFOLIO 2026</span>
-
-        </div>
-
-
-        <button
-            class="intro-enter"
-            id="introEnter"
-            type="button"
-        >
-
-            <span>CLICK TO ENTER</span>
-
-            <span class="intro-arrow">↗</span>
-
-        </button>
-
-
-        <div class="intro-footer">
-
-            <span>CREATIVE WEB DEVELOPER</span>
-
-            <span>© 2026</span>
-
-        </div>
-
-    </div>
-
-</div>
+</button>
 
 
 
@@ -81,27 +83,33 @@
 
 <section class="hero">
 
-    <div class="page-container hero-container">
+    <div class="container hero-inner">
 
-        <div class="hero-header">
 
-            <span>EBLAS</span>
+        <header class="topbar">
 
-            <span>
-                CREATIVE WEB DEVELOPER / DESIGN ENGINEER
+            <span class="brand">
+                EBLAS
             </span>
 
-        </div>
+            <span class="topbar-role">
+                CREATIVE WEB DEVELOPER
+            </span>
+
+        </header>
 
 
-        <div class="hero-center">
 
-            <div class="hero-kicker">
+        <div class="hero-content">
+
+
+            <div class="eyebrow">
                 DIGITAL DESIGN & DEVELOPMENT
             </div>
 
 
-            <h1>
+            <h1 class="hero-title">
+
                 I BUILD
                 <br>
                 MEMORABLE
@@ -109,12 +117,26 @@
                 DIGITAL
                 <br>
                 EXPERIENCES
+
             </h1>
+
+
+            <p class="hero-description">
+
+                Diseño y desarrollo experiencias digitales
+                para marcas, hoteles, estudios creativos,
+                proyectos inmobiliarios y espacios culturales,
+                combinando diseño, tecnología, interacción
+                y estrategia digital.
+
+            </p>
+
 
         </div>
 
 
-        <div class="hero-footer">
+
+        <div class="hero-bottom">
 
             <span>
                 WEB / MOTION / INTERACTION
@@ -125,6 +147,7 @@
             </span>
 
         </div>
+
 
     </div>
 
@@ -146,12 +169,12 @@
         <span>WEBGL</span>
         <span>THREE.JS</span>
         <span>WORDPRESS</span>
-        <span>REACT</span>
         <span>FIREBASE</span>
         <span>SEO</span>
         <span>ANALYTICS</span>
         <span>GOOGLE ADS</span>
         <span>META ADS</span>
+        <span>UX / UI</span>
 
         <span>JAVASCRIPT</span>
         <span>NODE.JS</span>
@@ -159,12 +182,12 @@
         <span>WEBGL</span>
         <span>THREE.JS</span>
         <span>WORDPRESS</span>
-        <span>REACT</span>
         <span>FIREBASE</span>
         <span>SEO</span>
         <span>ANALYTICS</span>
         <span>GOOGLE ADS</span>
         <span>META ADS</span>
+        <span>UX / UI</span>
 
     </div>
 
@@ -178,21 +201,21 @@
 
 <section class="work">
 
-    <div class="page-container">
+    <div class="container">
 
-        <div class="section-intro">
 
-            <div class="section-number">
+        <div class="section-heading">
+
+            <span class="section-number">
                 01
-            </div>
+            </span>
 
 
             <div>
 
-                <div class="section-label">
+                <span class="section-label">
                     SELECTED WORK
-                </div>
-
+                </span>
 
                 <h2>
                     SELECTED
@@ -200,12 +223,12 @@
                     WORK
                 </h2>
 
-
                 <p class="section-description">
 
-                    Proyectos digitales desarrollados para
-                    hospitality, arquitectura, arte,
-                    interiorismo y real estate.
+                    Una selección de proyectos digitales
+                    desarrollados para hospitality,
+                    arquitectura, arte, interiorismo
+                    y real estate.
 
                 </p>
 
@@ -218,13 +241,15 @@
         <div class="projects">
 
 
-            <!-- AZULIK -->
+            <!-- =================================================
+                 AZULIK
+            ================================================= -->
 
             <a
+                class="project"
                 href="https://azulik.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project"
             >
 
                 <div class="project-meta">
@@ -241,7 +266,6 @@
                     <img
                         src="https://hidra.me/images/work-01.jpg"
                         alt="AZULIK"
-                        loading="lazy"
                     >
 
                 </div>
@@ -251,15 +275,18 @@
 
                     <div>
 
-                        <h3>AZULIK</h3>
+                        <h3>
+                            AZULIK
+                        </h3>
+
 
                         <p class="project-description">
 
-                            Digital experience for a
-                            multidisciplinary hospitality
-                            destination in Tulum, combining
-                            architecture, art, gastronomy,
-                            wellness and immersive experiences.
+                            Experiencia digital para un
+                            destino multidisciplinario en
+                            Tulum que integra arquitectura,
+                            arte, gastronomía, bienestar
+                            y experiencias inmersivas.
 
                         </p>
 
@@ -274,7 +301,9 @@
                     </div>
 
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
 
                 </div>
 
@@ -282,20 +311,24 @@
 
 
 
-            <!-- MAWI -->
+            <!-- =================================================
+                 MAWI
+            ================================================= -->
 
             <a
+                class="project"
                 href="https://mawi-studiogallery.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project"
             >
 
                 <div class="project-meta">
 
                     <span>02</span>
 
-                    <span>mawi-studiogallery.com</span>
+                    <span>
+                        mawi-studiogallery.com
+                    </span>
 
                 </div>
 
@@ -305,7 +338,6 @@
                     <img
                         src="https://hidra.me/images/work-02.jpg"
                         alt="Mawi Studio Gallery"
-                        loading="lazy"
                     >
 
                 </div>
@@ -315,14 +347,17 @@
 
                     <div>
 
-                        <h3>MAWI STUDIO GALLERY</h3>
+                        <h3>
+                            MAWI STUDIO GALLERY
+                        </h3>
+
 
                         <p class="project-description">
 
-                            Digital presence for an interior
-                            design studio and gallery focused
-                            on architecture, objects and
-                            contemporary spaces.
+                            Presencia digital para un
+                            estudio de interiorismo y
+                            galería enfocado en arquitectura,
+                            objetos y espacios contemporáneos.
 
                         </p>
 
@@ -337,7 +372,9 @@
                     </div>
 
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
 
                 </div>
 
@@ -345,20 +382,24 @@
 
 
 
-            <!-- AZULIK DEVELOPMENTS -->
+            <!-- =================================================
+                 AZULIK DEVELOPMENTS
+            ================================================= -->
 
             <a
+                class="project"
                 href="https://azulikdevelopments.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project"
             >
 
                 <div class="project-meta">
 
                     <span>03</span>
 
-                    <span>azulikdevelopments.com</span>
+                    <span>
+                        azulikdevelopments.com
+                    </span>
 
                 </div>
 
@@ -368,7 +409,6 @@
                     <img
                         src="https://hidra.me/images/work-03.jpg"
                         alt="AZULIK Developments"
-                        loading="lazy"
                     >
 
                 </div>
@@ -378,14 +418,17 @@
 
                     <div>
 
-                        <h3>AZULIK DEVELOPMENTS</h3>
+                        <h3>
+                            AZULIK DEVELOPMENTS
+                        </h3>
+
 
                         <p class="project-description">
 
-                            Real estate digital experience
-                            focused on architectural projects,
-                            investment and the relationship
-                            between nature and design.
+                            Experiencia digital para proyectos
+                            inmobiliarios centrados en
+                            arquitectura, inversión y la
+                            relación entre naturaleza y diseño.
 
                         </p>
 
@@ -400,7 +443,9 @@
                     </div>
 
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
 
                 </div>
 
@@ -408,20 +453,24 @@
 
 
 
-            <!-- SFER IK -->
+            <!-- =================================================
+                 SFER IK
+            ================================================= -->
 
             <a
+                class="project"
                 href="https://www.sferik.art/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project"
             >
 
                 <div class="project-meta">
 
                     <span>04</span>
 
-                    <span>sferik.art</span>
+                    <span>
+                        sferik.art
+                    </span>
 
                 </div>
 
@@ -431,7 +480,6 @@
                     <img
                         src="https://hidra.me/images/work-04.jpg"
                         alt="SFER IK"
-                        loading="lazy"
                     >
 
                 </div>
@@ -441,14 +489,17 @@
 
                     <div>
 
-                        <h3>SFER IK</h3>
+                        <h3>
+                            SFER IK
+                        </h3>
+
 
                         <p class="project-description">
 
-                            Digital platform for an
-                            interdisciplinary art space
-                            connecting architecture,
-                            contemporary art and nature.
+                            Plataforma digital para un
+                            espacio interdisciplinario de arte
+                            que conecta arquitectura,
+                            arte contemporáneo y naturaleza.
 
                         </p>
 
@@ -463,7 +514,9 @@
                     </div>
 
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
 
                 </div>
 
@@ -471,20 +524,24 @@
 
 
 
-            <!-- BIWA -->
+            <!-- =================================================
+                 BIWA
+            ================================================= -->
 
             <a
+                class="project"
                 href="https://biwatulum.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project"
             >
 
                 <div class="project-meta">
 
                     <span>05</span>
 
-                    <span>biwatulum.com</span>
+                    <span>
+                        biwatulum.com
+                    </span>
 
                 </div>
 
@@ -494,7 +551,6 @@
                     <img
                         src="https://hidra.me/images/work-05.jpg"
                         alt="BIWA Tulum"
-                        loading="lazy"
                     >
 
                 </div>
@@ -504,14 +560,17 @@
 
                     <div>
 
-                        <h3>BIWA TULUM</h3>
+                        <h3>
+                            BIWA TULUM
+                        </h3>
+
 
                         <p class="project-description">
 
-                            Hospitality and real estate
-                            experience designed around
-                            location, architecture and
-                            destination storytelling.
+                            Experiencia digital para hospitality
+                            y real estate construida alrededor
+                            de la arquitectura, el destino
+                            y la narrativa visual.
 
                         </p>
 
@@ -526,7 +585,9 @@
                     </div>
 
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
 
                 </div>
 
@@ -534,20 +595,24 @@
 
 
 
-            <!-- MAYAN -->
+            <!-- =================================================
+                 MAYAN INVESTMENT
+            ================================================= -->
 
             <a
+                class="project"
                 href="https://mayan-investment.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project"
             >
 
                 <div class="project-meta">
 
                     <span>06</span>
 
-                    <span>mayan-investment.com</span>
+                    <span>
+                        mayan-investment.com
+                    </span>
 
                 </div>
 
@@ -557,7 +622,6 @@
                     <img
                         src="https://hidra.me/images/work-06.jpg"
                         alt="Mayan Investment"
-                        loading="lazy"
                     >
 
                 </div>
@@ -567,14 +631,17 @@
 
                     <div>
 
-                        <h3>MAYAN INVESTMENT</h3>
+                        <h3>
+                            MAYAN INVESTMENT
+                        </h3>
+
 
                         <p class="project-description">
 
-                            Real estate platform focused
-                            on investment opportunities,
-                            property presentation and
-                            lead generation.
+                            Plataforma inmobiliaria enfocada
+                            en oportunidades de inversión,
+                            presentación de propiedades
+                            y generación de leads.
 
                         </p>
 
@@ -589,11 +656,14 @@
                     </div>
 
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
 
                 </div>
 
             </a>
+
 
         </div>
 
@@ -604,26 +674,26 @@
 
 
 <!-- =====================================================
-     MYSELF
+     ABOUT
 ===================================================== -->
 
-<section class="myself">
+<section class="about">
 
-    <div class="page-container">
+    <div class="container">
 
-        <div class="section-intro">
 
-            <div class="section-number">
+        <div class="section-heading">
+
+            <span class="section-number">
                 02
-            </div>
+            </span>
 
 
             <div>
 
-                <div class="section-label">
-                    MYSELF
-                </div>
-
+                <span class="section-label">
+                    ABOUT
+                </span>
 
                 <h2>
                     EMANUEL
@@ -637,24 +707,23 @@
 
 
 
-        <div class="myself-content">
+        <div class="about-content">
 
-            <p class="myself-lead">
+            <p class="about-lead">
 
-                Driven by visual craft and engineering
-                discipline, I turn ideas into digital
-                experiences that balance design,
-                technology and performance.
+                Diseño y desarrollo experiencias
+                digitales que combinan estética,
+                tecnología y funcionalidad.
 
             </p>
 
 
-            <div class="myself-text">
+            <div class="about-columns">
 
                 <p>
 
                     Soy diseñador web y desarrollador
-                    especializado en crear experiencias
+                    especializado en construir experiencias
                     digitales para marcas, hoteles,
                     desarrolladores, estudios creativos
                     y proyectos culturales.
@@ -664,9 +733,9 @@
 
                 <p>
 
-                    Trabajo desde la conceptualización
-                    y el diseño de la experiencia hasta
-                    el desarrollo, implementación,
+                    Trabajo desde el concepto y la
+                    experiencia de usuario hasta el
+                    desarrollo, implementación,
                     optimización, analítica y adquisición
                     de tráfico.
 
@@ -675,16 +744,16 @@
 
                 <p>
 
-                    Mi enfoque combina diseño visual,
-                    desarrollo frontend, interacción,
-                    motion, tecnología web y estrategia
-                    digital.
+                    Mi trabajo combina diseño visual,
+                    frontend, interacción, motion,
+                    tecnología web y estrategia digital.
 
                 </p>
 
             </div>
 
         </div>
+
 
     </div>
 
@@ -698,21 +767,21 @@
 
 <section class="skills">
 
-    <div class="page-container">
+    <div class="container">
 
-        <div class="section-intro">
 
-            <div class="section-number">
+        <div class="section-heading">
+
+            <span class="section-number">
                 03
-            </div>
+            </span>
 
 
             <div>
 
-                <div class="section-label">
+                <span class="section-label">
                     SKILLS / STACK
-                </div>
-
+                </span>
 
                 <h2>
                     WHAT
@@ -733,12 +802,14 @@
 
                 <span>01</span>
 
-                <h3>FRONTEND</h3>
+                <h3>
+                    FRONTEND
+                </h3>
 
                 <p>
                     HTML / CSS / JavaScript /
-                    Responsive Design / UI /
-                    UX / Accessibility
+                    Responsive Design / UI / UX /
+                    Accessibility
                 </p>
 
             </div>
@@ -748,12 +819,14 @@
 
                 <span>02</span>
 
-                <h3>JAVASCRIPT</h3>
+                <h3>
+                    JAVASCRIPT
+                </h3>
 
                 <p>
-                    JavaScript / Node.js /
-                    APIs / JSON / Async /
-                    DOM / Architecture
+                    JavaScript / Node.js / APIs /
+                    JSON / DOM / Async /
+                    Architecture
                 </p>
 
             </div>
@@ -763,7 +836,9 @@
 
                 <span>03</span>
 
-                <h3>MOTION</h3>
+                <h3>
+                    MOTION
+                </h3>
 
                 <p>
                     GSAP / ScrollTrigger /
@@ -779,12 +854,13 @@
 
                 <span>04</span>
 
-                <h3>CREATIVE WEB</h3>
+                <h3>
+                    CREATIVE WEB
+                </h3>
 
                 <p>
-                    WebGL / Three.js /
-                    A-Frame / 3D /
-                    360° Experiences /
+                    WebGL / Three.js / A-Frame /
+                    3D / 360° Experiences /
                     Interactive Experiences
                 </p>
 
@@ -795,7 +871,9 @@
 
                 <span>05</span>
 
-                <h3>WORDPRESS</h3>
+                <h3>
+                    WORDPRESS
+                </h3>
 
                 <p>
                     WordPress / Elementor /
@@ -810,7 +888,9 @@
 
                 <span>06</span>
 
-                <h3>BACKEND / CLOUD</h3>
+                <h3>
+                    BACKEND / CLOUD
+                </h3>
 
                 <p>
                     Node.js / Firebase /
@@ -825,12 +905,14 @@
 
                 <span>07</span>
 
-                <h3>SEO</h3>
+                <h3>
+                    SEO
+                </h3>
 
                 <p>
                     Technical SEO / On-page SEO /
-                    Schema / Performance /
-                    Search Console / Rank Math
+                    Schema / Search Console /
+                    Performance / Rank Math
                 </p>
 
             </div>
@@ -840,7 +922,9 @@
 
                 <span>08</span>
 
-                <h3>ANALYTICS</h3>
+                <h3>
+                    ANALYTICS
+                </h3>
 
                 <p>
                     Google Analytics 4 /
@@ -856,7 +940,9 @@
 
                 <span>09</span>
 
-                <h3>PAID MEDIA</h3>
+                <h3>
+                    PAID MEDIA
+                </h3>
 
                 <p>
                     Google Ads / Meta Ads /
@@ -871,13 +957,14 @@
 
                 <span>10</span>
 
-                <h3>CRM / AUTOMATION</h3>
+                <h3>
+                    CRM / AUTOMATION
+                </h3>
 
                 <p>
                     CRM Integrations /
-                    Lead Generation /
-                    Forms / APIs /
-                    Marketing Automation
+                    Lead Generation / Forms /
+                    APIs / Marketing Automation
                 </p>
 
             </div>
@@ -887,13 +974,14 @@
 
                 <span>11</span>
 
-                <h3>PERFORMANCE</h3>
+                <h3>
+                    PERFORMANCE
+                </h3>
 
                 <p>
                     Core Web Vitals /
-                    Optimization /
-                    Image Optimization /
-                    Caching / CDN
+                    Optimization / Caching /
+                    CDN / Image Optimization
                 </p>
 
             </div>
@@ -903,16 +991,18 @@
 
                 <span>12</span>
 
-                <h3>INFRASTRUCTURE</h3>
+                <h3>
+                    INFRASTRUCTURE
+                </h3>
 
                 <p>
-                    Git / GitHub /
-                    Cloudflare / DNS /
-                    Hosting / cPanel /
+                    Git / GitHub / Cloudflare /
+                    DNS / Hosting / cPanel /
                     Deployment
                 </p>
 
             </div>
+
 
         </div>
 
@@ -928,21 +1018,21 @@
 
 <section class="contact">
 
-    <div class="page-container contact-container">
+    <div class="container">
 
-        <div class="section-intro">
 
-            <div class="section-number">
+        <div class="section-heading">
+
+            <span class="section-number">
                 04
-            </div>
+            </span>
 
 
             <div>
 
-                <div class="section-label">
+                <span class="section-label">
                     CONTACT
-                </div>
-
+                </span>
 
                 <h2>
                     LET'S
@@ -956,21 +1046,23 @@
 
 
 
-        <div class="contact-center">
+        <div class="contact-content">
 
-            <div class="contact-status">
+            <p class="contact-status">
 
                 AVAILABLE FOR FREELANCE,
                 COLLABORATIONS AND DIGITAL PROJECTS.
 
-            </div>
+            </p>
 
 
             <a
                 href="mailto:TUEMAIL@DOMINIO.COM"
                 class="contact-email"
             >
+
                 TUEMAIL@DOMINIO.COM
+
             </a>
 
         </div>
@@ -979,13 +1071,20 @@
 
         <footer>
 
-            <span>EBLAS</span>
+            <span>
+                EBLAS
+            </span>
 
-            <span>CREATIVE WEB DEVELOPER</span>
+            <span>
+                CREATIVE WEB DEVELOPER
+            </span>
 
-            <span>© 2026</span>
+            <span>
+                © 2026
+            </span>
 
         </footer>
+
 
     </div>
 
@@ -995,7 +1094,18 @@
 </main>
 
 
-<script src="js/main.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+></script>
+
+<script
+    src="js/main.js"
+></script>
+
 
 </body>
 </html>
