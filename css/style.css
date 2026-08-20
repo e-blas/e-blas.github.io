@@ -753,40 +753,38 @@ main {
 
     margin-top: 10px;
 
-    display: flex;
-
     overflow: hidden;
 }
 
-.marquee div {
+.marquee-track {
+    display: flex;
+
+    width: max-content;
+
+    animation:
+        marqueeLoop 24s linear infinite;
+}
+
+.marquee-track span {
     letter-spacing: .16em;
 
     color: #d5b8d0;
 
-    flex: none;
+    flex: 0 0 auto;
 
-    width: max-content;
-
-    padding: 14px 0;
+    padding: 14px 40px 14px 0;
 
     font-size: 11px;
-
-    animation:
-        20s linear infinite loop;
 }
 
-.marquee div:last-child {
-    animation-delay: -10s;
-}
-
-@keyframes loop {
+@keyframes marqueeLoop {
 
     from {
         transform: translateX(0);
     }
 
     to {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 
 }
