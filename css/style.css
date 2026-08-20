@@ -765,7 +765,7 @@ main {
 
     flex: none;
 
-    min-width: 100%;
+    width: max-content;
 
     padding: 14px 0;
 
@@ -781,12 +781,12 @@ main {
 
 @keyframes loop {
 
-    0% {
-        transform: translate(0);
+    from {
+        transform: translateX(0);
     }
 
     to {
-        transform: translate(-100%);
+        transform: translateX(-100%);
     }
 
 }
